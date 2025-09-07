@@ -1,7 +1,104 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-body{
-    font-family: 'karla',sans-serif;
-    font-weight: 400;
-    font-size: 10px;
-  }
+
+body {
+     background: linear-gradient(to top,#305fbe, #4f7cd7);
+    font-family: 'Karla', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+hr {
+    border-width: 3px;
+    border-color: #EAF6F6;
+    border-style: solid;
+    width: 25%;
+    border-bottom: none;    
+}
+
+
+#MainHeader {
+    background-color: #ffffff;
+    border-bottom: 2px solid #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-bottom: 100px;
+    gap: 50px;
+}
+
+#MainBody{
+    color: white;
+}
+
+#wup{
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* pa la tabla del inicio whats up */
+.InfoTable {
+    width: 90%;
+    border-collapse: separate;
+    border-spacing: 13px; 
+}
+
+.InfoTable td {
+    padding: 30px;
+    vertical-align: top;
+}
+
+.InfoTable img {
+    width: 350px; 
+    height: 280px;
+    border-radius: 20px;
+    border: 8px solid white; 
+    box-shadow: 0 20px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* pa la tabla de imagenes */
+#RealImages {
+    width: 90%;
+    border-collapse: separate;
+    border-spacing: 13px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+
+}
+#RealImages td {
+    padding: 10px;
+    vertical-align: top;
+    padding-left: 75px;
+}
+#RealImages img {
+    width: 350px; 
+    height: 280px;
+    border: 8px solid white; 
+    box-shadow: 0 20px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Images1 {
+transform: rotate(-5deg);
+}
+.Images2 {
+transform: rotate(2deg);
+}
+.Images3 {
+transform: rotate(4deg);
+}
+
+/* Efecto hover para las imagenes (gracias google) */
+ #RealImages img:hover {
+transform: rotate(0deg) scale(1.05);
+z-index: 10;
+box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+transition: transform 0.3s, box-shadow 0.3s;
+}
