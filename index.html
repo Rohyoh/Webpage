@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head id="TopPage">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -10,23 +10,21 @@
 
 </head>
 <body>
-    <div id="MainHeader">
-        <h1 id="Clean D Seas">CLEAN D SEAS</h1>
-        <img src="images/logo.png" 
-        alt="logo" height="50px" width="50px"/>
-    </div>   
-    <hr>
-    <hr> 
+     <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Clean D Seas Logo">
+            <h1>CLEAN D SEAS</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#MainBody">The Problem</a></li>
+                <li><a href="#History">History</a></li>
+                <li><a href="#Consequences">Consequences</a></li>
+                <li><a href="help.html">HELP</a></li>
+            </ul>
+        </nav>
+    </header>
 
-
-  
-    
-    <!--Aquí irá una barra con los links a las demás partes de la página web-->
-    <p>
-         <a href="help.html">HELP</a> | 
-    </p>
-    <hr>
-    <hr>
     <!--Aquí termina el header y empieza el cuerpo-->
     <div id="MainBody">
         <h2 id="wup">So, what's up?</h2>
@@ -76,8 +74,8 @@
         <hr>
         <hr>
         <!--Sección de la historia del problema-->
-        <h2>Problem's History</h2>
-        <table id="History">
+        <h2 id="History">Problem's History</h2>
+        <table>
             <tbody>
                 <tr>
                     <td>
@@ -161,7 +159,7 @@
             </tbody>
         </table>
     </div>
-    <a href="#MainHeader">
+    <a href="#TopPage">
         <img src="images/tombstone.png" alt="tombstone" width="200px" height="280px"/>
     </a>
 </body>
