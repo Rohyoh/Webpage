@@ -3,167 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/stylesMain.css">
-
     <title>CleanDSeas</title>
-
 </head>
 <body>
-     <header>
-        <div class="logo-container">
-            <img src="images/logo.png" alt="Clean D Seas Logo">
-            <h1>CLEAN D SEAS</h1>
+    <!-- Header con Bootstrap para estructura -->
+    <header class="custom-navbar">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center">
+                <!-- Logo y título -->
+                <div class="custom-logo-container">
+                    <img src="images/logo.png" alt="Clean D Seas Logo" class="custom-logo">
+                    <h1 class="custom-title">CLEAN D SEAS</h1>
+                </div>
+                
+                <!-- Navegación -->
+                <nav>
+                    <ul class="custom-nav">
+                        <li>
+                            <a href="#MainBody" class="custom-nav-link">The Problem</a>
+                        </li>
+                        <li>
+                            <a href="#History" class="custom-nav-link">History</a>
+                        </li>
+                        <li>
+                            <a href="#Consequences" class="custom-nav-link">Consequences</a>
+                        </li>
+                        <li>
+                            <a href="help.html" class="custom-nav-link">HELP</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#MainBody">The Problem</a></li>
-                <li><a href="#History">History</a></li>
-                <li><a href="#Consequences">Consequences</a></li>
-                <li><a href="help.html">HELP</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <!--Aquí termina el header y empieza el cuerpo-->
-    <div id="MainBody">
-        <h2 id="wup">So, what's up?</h2>
+    <main class="container-fluid text-white">
+        <!-- Sección The Problem -->
+        <section id="MainBody" class="py-5">
+            <h2 id="wup" class="section-title">So, what's up?</h2>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-4 text-center mb-4">
+                            <img src="https://images.theconversation.com/files/377023/original/file-20210104-23-1gss1v1.jpg?ixlib=rb-4.1.0&rect=4%2C2%2C994%2C661&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip"
+                                alt="Sea Pollution" class="custom-img">
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <p>Sea pollution, or marine pollution, occurs when harmful substances like chemicals, trash, oil spills, and excess nutrients enter marine environments, causing detrimental effects on marine life, ecosystems, 
+                                and human health. The majority of these pollutants (approximately 80%) originate from land-based sources, such as agricultural runoff and industrial discharge, eventually reaching the ocean through rivers, 
+                                storm drains, and atmospheric deposition. Common pollutants include plastics, chemicals, fertilizers, and oil, which lead to algal blooms, bioaccumulation of toxins, and habitat degradation.  
+                            </p>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <p>If sea pollution isn't controlled soon, the consequences will be severe, cascading, and often irreversible. The ocean is not a separate entity; it is a fundamental life-support system for our planet.
+                                The ocean's health is directly tied to our own survival. The urgency to act—by reducing plastic waste, curbing chemical runoff, transitioning to clean energy, and creating protected marine areas—has 
+                                never been greater. The next few decades are critical.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            <hr class="divider">
+            
+            <!-- Sección de imágenes -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-10">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4 text-center mb-4">
+                            <img class="custom-img img-rotate1" src="https://cleanwater.org/sites/default/files/images/actions/RI_plastic%20on%20beach_canva.jpg"
+                                alt="Plastic on beach">
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <img class="custom-img img-rotate2" src="https://www.greenpeace.org/static/planet4-international-stateless/2020/09/5a4f7d68-gp1su9nb-1024x576.jpg"
+                                alt="Ocean pollution">
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <img class="custom-img img-rotate3" src="https://www.reuters.com/resizer/v2/https%3A%2F%2Farchive-images.prod.global.a201836.reutersmedia.net%2F2015%2F02%2F13%2FLYNXMPEB1C006.JPG?auth=0f29dc60dbdb8dee529157047c46460e768cd35341ba1d6e202c4d539422c3e4&width=1080&quality=80"
+                                alt="Oil spill">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            <hr class="divider">
+        </section>
+        
+        <!-- Sección History -->
+        <section id="History" class="py-5">
+            <h2 class="section-title">Problem's History</h2>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-10">
+                    <div class="row mb-4">
+                        <div class="col-md-4 mb-4">
+                            <p>
+                                The relationship with the ocean was very different. People saw it as this vast, unknowable expanse—a source of wonder, food, and transportation, 
+                                but also as a perfect dumping ground. The prevailing attitude was, "out of sight, out of mind." Cities growing along coastlines would pipe their raw sewage straight out to sea. 
+                                Factories, booming with industrial progress, saw rivers and estuaries as convenient sewers for chemical waste, heavy metals, and byproducts. The ocean seemed so immense that the idea that we could affect it was almost laughable. 
+                                It was the ultimate "dilution is the solution to pollution" era.
+                            </p>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <p>
+                                Then, post-World War II, things really began to accelerate. This was the dawn of the plastic age. Materials like plastic, which were miracles of durability and convenience on land, became a nightmare in the water. 
+                                But it wasn't just plastic. The chemical industry was creating a whole new suite of synthetic compounds, pesticides like DDT, and industrial chemicals like PCBs. These didn't just dirty the water; they entered the food web.
+                                We started seeing eerie signs—eggshells of seabirds becoming so thin they would crush under the weight of the parent, populations of animals like otters and eagles mysteriously declining. The poison was invisible, but it was there,
+                                biomagnifying as it moved up the chain from plankton to fish to predator.
+                            </p>
+                        </div>
+                        <div class="col-md-4 mb-4 text-center">
+                            <iframe width="350" height="200" src="https://www.youtube.com/embed/uRE_DndxwaA?si=NVRL-L6HIuixjy7Z" 
+                            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <p>
+                                This silent crisis led to a real awakening in the 1960s and 70s. Books like Rachel Carson's "Silent Spring," though focused on land, opened people's eyes to the interconnectedness of our ecosystem. Major environmental disasters,
+                                like the massive oil spill from the SS Torrey Canyon in 1967 and later the Exxon Valdez in 1989, were horrific but undeniable. For the first time, everyone saw the images—beaches blackened, birds suffocating in sludge, the ocean itself on fire. 
+                                It was no longer an invisible problem. This public outrage sparked the first real wave of environmental laws, like the Clean Water Act in the US, which began to regulate what could be dumped.
+                            </p>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <p>
+                                And then, we come to today. That plastic we fell in love with in the 1950s has come back to haunt us in a way we never imagined. We're now finding microplastics everywhere—in the deepest trenches of the Mariana Trench, in the Arctic ice, and inside our own bodies. 
+                                The Great Pacific Garbage Patch became the symbol of this new era, a swirling testament to our disposable culture. The conversation has shifted from visible trash to these invisible, insidious particles, and to a new understanding that the ocean isn't just a place we visit; 
+                                its health is directly tied to our climate. The CO2 we pump into the air is being absorbed, making the water more acidic, threatening the very foundation of the marine food web: coral reefs and shellfish.
+                            </p>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <p>
+                                So the story, from 100 years ago to now, is really a story of human perception. We went from seeing the ocean as a limitless dumpster to understanding it as a fragile, connected, and critically important life support system. The problems have evolved from simple, 
+                                visible waste to complex, global chemical and carbon cycles that we are only beginning to understand. The challenge is no longer just about cleaning up a beach; it's about redesigning our entire relationship with the planet, from how we farm and manufacture to how we power our lives. 
+                                The ocean has been telling us this story for a century. We're just now learning how to listen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <hr class="divider">
+        <hr class="divider">
+        
+        <!-- Sección Consequences -->
+        <section id="Consequences" class="py-5">
+            <h2 class="section-title">Consequences</h2>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="consequence-box h-100">
+                                <p class="consequence-text">"Devastation of Marine Ecosystems and Biodiversity: Pollution introduces harmful chemicals, plastics, and excess nutrients into the ocean. 
+                                        This directly kills marine life through ingestion or entanglement (especially with plastic), destroys critical habitats like coral reefs and seagrass beds, 
+                                        and creates vast "dead zones" where no life can exist due to a lack of oxygen. This loss of biodiversity destabilizes the entire marine food web"</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="consequence-box h-100 mt-4">
+                                <p class="consequence-text">"Direct Harm to Human Health and Economies: Pollutants like mercury, PCBs, and microplastics accumulate in the seafood we eat, posing significant health risks.
+                                        Contaminated waters also cause illnesses through direct contact. Economically, pollution devastates fisheries and aquaculture industries, cripples tourism 
+                                        in coastal areas with dirty beaches and dying reefs, and burdens communities with massive cleanup costs."</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="consequence-box h-100">
+                                <p class="consequence-text">"Disruption of Global Systems: The ocean is a major regulator of Earth's climate. Pollution, particularly through the process of ocean acidification 
+                                        (caused by the absorption of excess CO2), compromises the ocean's ability to function properly. This weakens one of our planet's most important 
+                                        defenses against climate change and disrupts the vital cycles that support life on Earth."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <iframe class="video" width="100%" height="350" src="https://www.youtube.com/embed/Yomf5pBN8dY?si=hzee2Cq8IcZ0LIOX" title="YouTube video player" 
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tombstone -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-12 text-center">
+                <a href="index.html">
+                    <img src="images/tombstone.png" alt="tombstone" width="200" height="280">
+                </a>
+            </div>
+        </div>
+    </main>
 
-        <table class="InfoTable">
-            <tr>
-                <td>
-                    <img src="https://images.theconversation.com/files/377023/original/file-20210104-23-1gss1v1.jpg?ixlib=rb-4.1.0&rect=4%2C2%2C994%2C661&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip"
-                    alt="Sea Pollution" width="350px" height="300px"/>
-                </td>
-                <td>
-                    <p>Sea pollution, or marine pollution, occurs when harmful substances like chemicals, trash, oil spills, and excess nutrients enter marine environments, causing detrimental effects on marine life, ecosystems, 
-                        and human health. The majority of these pollutants (approximately 80%) originate from land-based sources, such as agricultural runoff and industrial discharge, eventually reaching the ocean through rivers, 
-                        storm drains, and atmospheric deposition. Common pollutants include plastics, chemicals, fertilizers, and oil, which lead to algal blooms, bioaccumulation of toxins, and habitat degradation.  
-                    </p>
-                </td>
-                <td>
-                    <p>If sea pollution isn't controlled soon, the consequences will be severe, cascading, and often irreversible. The ocean is not a separate entity; it is a fundamental life-support system for our planet.
-                        The ocean's health is directly tied to our own survival. The urgency to act—by reducing plastic waste, curbing chemical runoff, transitioning to clean energy, and creating protected marine areas—has 
-                        never been greater. The next few decades are critical.
-                    </p>
-                </td>
-            </tr>
-        </table>
-
-        <hr>
-        <hr>
-        <!--Aquí comienza la sección de imágenes-->
-        <table id="RealImages">
-            <tr>
-                <td>
-                    <img class="Images1" src="https://cleanwater.org/sites/default/files/images/actions/RI_plastic%20on%20beach_canva.jpg"
-                    width="100px" height="90px"/>
-                </td>
-                <td>
-                    <img class="Images2" src="https://www.greenpeace.org/static/planet4-international-stateless/2020/09/5a4f7d68-gp1su9nb-1024x576.jpg"
-                    width="100px" height="90px"/>
-                </td>
-                <td>
-                    <img class="Images3" src="https://www.reuters.com/resizer/v2/https%3A%2F%2Farchive-images.prod.global.a201836.reutersmedia.net%2F2015%2F02%2F13%2FLYNXMPEB1C006.JPG?auth=0f29dc60dbdb8dee529157047c46460e768cd35341ba1d6e202c4d539422c3e4&width=1080&quality=80"
-                    width="100px" height="90px"/>
-                </td>
-            </tr>
-        </table>
-        <!--Aquí acaba-->
-
-        <hr>
-        <hr>
-         <!--Sección de la historia del problema-->
-        <h2 id="History">Problem's History</h2>
-        <table>
-            <tbody>
-                <tr>
-                    <td>
-                        <p>
-                            the relationship with the ocean was very different. People saw it as this vast, unknowable expanse—a source of wonder, food, and transportation, 
-                            but also as a perfect dumping ground. The prevailing attitude was, "out of sight, out of mind." Cities growing along coastlines would pipe their raw sewage straight out to sea. 
-                            Factories, booming with industrial progress, saw rivers and estuaries as convenient sewers for chemical waste, heavy metals, and byproducts. The ocean seemed so immense that the idea that we could affect it was almost laughable. 
-                            It was the ultimate "dilution is the solution to pollution" era.
-                        </p>
-                    </td>
-                    <td>
-                        <p>
-                            Then, post-World War II, things really began to accelerate. This was the dawn of the plastic age. Materials like plastic, which were miracles of durability and convenience on land, became a nightmare in the water. 
-                            But it wasn't just plastic. The chemical industry was creating a whole new suite of synthetic compounds, pesticides like DDT, and industrial chemicals like PCBs. These didn't just dirty the water; they entered the food web.
-                            We started seeing eerie signs—eggshells of seabirds becoming so thin they would crush under the weight of the parent, populations of animals like otters and eagles mysteriously declining. The poison was invisible, but it was there,
-                            biomagnifying as it moved up the chain from plankton to fish to predator.
-                        </p>
-                    </td>
-                    <td>
-                        <iframe width="350" height="200" src="https://www.youtube.com/embed/uRE_DndxwaA?si=NVRL-L6HIuixjy7Z" 
-                        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                        </iframe>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>
-                            This silent crisis led to a real awakening in the 1960s and 70s. Books like Rachel Carson's "Silent Spring," though focused on land, opened people's eyes to the interconnectedness of our ecosystem. Major environmental disasters,
-                            like the massive oil spill from the SS Torrey Canyon in 1967 and later the Exxon Valdez in 1989, were horrific but undeniable. For the first time, everyone saw the images—beaches blackened, birds suffocating in sludge, the ocean itself on fire. 
-                            It was no longer an invisible problem. This public outrage sparked the first real wave of environmental laws, like the Clean Water Act in the US, which began to regulate what could be dumped.
-                        </p>
-                    </td>
-                    <td>
-                        And then, we come to today. That plastic we fell in love with in the 1950s has come back to haunt us in a way we never imagined. We're now finding microplastics everywhere—in the deepest trenches of the Mariana Trench, in the Arctic ice, and inside our own bodies. 
-                        The Great Pacific Garbage Patch became the symbol of this new era, a swirling testament to our disposable culture. The conversation has shifted from visible trash to these invisible, insidious particles, and to a new understanding that the ocean isn't just a place we visit; 
-                        its health is directly tied to our climate. The CO2 we pump into the air is being absorbed, making the water more acidic, threatening the very foundation of the marine food web: coral reefs and shellfish.
-                    </td>
-                    <td>
-                        So the story, from 100 years ago to now, is really a story of human perception. We went from seeing the ocean as a limitless dumpster to understanding it as a fragile, connected, and critically important life support system. The problems have evolved from simple, 
-                        visible waste to complex, global chemical and carbon cycles that we are only beginning to understand. The challenge is no longer just about cleaning up a beach; it's about redesigning our entire relationship with the planet, from how we farm and manufacture to how we power our lives. 
-                        The ocean has been telling us this story for a century. We're just now learning how to listen.
-                    </td>
-                </tr>
-            </tbody>   
-        </table>
-    </div>
-    <!--Aquí acaba la sección de historia-->
-
-    <hr>
-    <hr>
-
-    <!--Sección de consecuencias-->
-    <h2 id="Consequences">Consequences</h2>
-<div class="consequences">
-<div class="consequence1">
-    <p class="consequence-text">"Devastation of Marine Ecosystems and Biodiversity: Pollution introduces harmful chemicals, plastics, and excess nutrients into the ocean. 
-            This directly kills marine life through ingestion or entanglement (especially with plastic), destroys critical habitats like coral reefs and seagrass beds, 
-            and creates vast "dead zones" where no life can exist due to a lack of oxygen. This loss of biodiversity destabilizes the entire marine food web"</p>
-</div>
-
-<div class="consequence2">
- <p class="consequence-text">"Direct Harm to Human Health and Economies: Pollutants like mercury, PCBs, and microplastics accumulate in the seafood we eat, posing significant health risks.
-            Contaminated waters also cause illnesses through direct contact. Economically, pollution devastates fisheries and aquaculture industries, cripples tourism 
-            in coastal areas with dirty beaches and dying reefs, and burdens communities with massive cleanup costs."</p>
-</div>
-
-<div class="consequence3">
-<p class="consequence-text">"Disruption of Global Systems: The ocean is a major regulator of Earth's climate. Pollution, particularly through the process of ocean acidification 
-            (caused by the absorption of excess CO2), compromises the ocean's ability to function properly. This weakens one of our planet's most important 
-            defenses against climate change and disrupts the vital cycles that support life on Earth."</p>
-</div>
-
-</div>
-</div>
-
-
-<iframe class="video" width="350" height="250" src="https://www.youtube.com/embed/Yomf5pBN8dY?si=hzee2Cq8IcZ0LIOX" title="YouTube video player" 
-    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
-    allowfullscreen>
-</iframe>
-
-
-<div class="tombstone">
-<a href="index.html">
-        <img src="images/tombstone.png" alt="tombstone" width="200px" height="280px"/>
-    </a>
-</div>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

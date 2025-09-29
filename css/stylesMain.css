@@ -1,229 +1,194 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-
-
 body {
-     background: linear-gradient(to top,#214794, #4f7cd7);
+    background: linear-gradient(to top,#214794, #4f7cd7);
     font-family: 'Karla', sans-serif;
     margin: 0;
     padding: 0;
 }
 
-
-hr {
-    border-width: 3px;
-    border-color: #EAF6F6;
-    border-style: solid;
-    width: 25%;
-    border-bottom: none;    
+.custom-navbar {
+    background-color: #ffffff !important;
+    padding: 20px 50px;
+    height: 110px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-/* parte de arriba */   
-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 20px 50px;
-background-color: #ffffff;
-position: fixed;
-width: 100%;
-top: 0;
- z-index: 1000;
-box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-box-sizing: border-box;
- height: 110px;
- }
-        
-.logo-container {
+.custom-logo-container {
     display: flex;
     align-items: center;
     gap: 15px;
 }
-        
-.logo-container img {
+
+.custom-logo {
     width: 60px;
     height: 60px;
 }
-        
-.logo-container h1 {
+
+.custom-title {
     font-size: 24px;
     color: rgb(0, 0, 0);
+    margin: 0;
 }
-        
-nav ul {
+
+.custom-nav {
     display: flex;
     list-style: none;
     gap: 30px;
-  
+    margin: 0;
+    padding: 0;
 }
-        
-nav a {
-     text-decoration: none;
+
+.custom-nav-link {
+    text-decoration: none;
     color: rgb(0, 0, 0);
     font-weight: 600;
     transition: color 0.3s;
     font-size: 20px;
 }
-        
-nav a:hover {
+
+.custom-nav-link:hover {
     color: #62a4e7;
 }
 
-
-#MainBody{
-    color: white;    
-
+main {
+    padding-top: 150px;
 }
 
-#wup{
-    text-align: center;
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 700;
-    font-size: 40px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-top: 180px;
-    
-}
-
-/* pa la tabla del inicio whats up */
-.InfoTable {
-    width: 90%;
-    border-collapse: separate;
-    border-spacing: 13px; 
-}
-
-.InfoTable td {
-    padding: 30px;
-    vertical-align: top;
-}
-
-.InfoTable img {
-    width: 350px; 
+.custom-img {
+    width: 350px;
     height: 280px;
     border-radius: 20px;
-    border: 8px solid white; 
+    border: 8px solid white;
     box-shadow: 0 20px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-/* pa la tabla de imagenes */
-#RealImages {
-    width: 90%;
-    border-collapse: separate;
-    border-spacing: 13px; 
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-
-}
-#RealImages td {
-    padding: 10px;
-    vertical-align: top;
-    padding-left: 75px;
-}
-#RealImages img {
-    width: 350px; 
-    height: 280px;
-    border: 8px solid white; 
-    box-shadow: 0 20px 8px rgba(0, 0, 0, 0.1);
+.img-rotate1 {
+    transform: rotate(-5deg);
 }
 
-.Images1 {
-transform: rotate(-5deg);
-}
-.Images2 {
-transform: rotate(2deg);
-}
-.Images3 {
-transform: rotate(4deg);
+.img-rotate2 {
+    transform: rotate(2deg);
 }
 
-/* Efecto hover para las imagenes (gracias google) */
- #RealImages img:hover {
-transform: rotate(0deg) scale(1.05);
-z-index: 10;
-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-transition: transform 0.3s, box-shadow 0.3s;
+.img-rotate3 {
+    transform: rotate(4deg);
 }
 
-#History{
+.custom-img:hover {
+    transform: rotate(0deg) scale(1.05);
+    z-index: 10;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+.consequence-box {
+    background-color: #214794;
+    color: white;
+    padding: 20px 12px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.consequence-text {
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+/* Estilos para títulos */
+.section-title {
     text-align: center;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
     font-size: 40px;
+    color: white;
+    margin-bottom: 30px;
 }
 
-
-
-
-
-
-.consequences {
-            display: flex;
-            gap: 32px;
-            height: 100px;
-            width: 90%;
-            margin-top: 100px;
-            
-            }
-        
-        .consequence1 {
-            background-color: #214794;
-            color: white;
-            padding: 20px 12px;
-            border-radius: 10px;
-            flex: 1;
-            align-self: flex-start;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .consequence2{
-            background-color: #214794;
-            color: white;
-            padding: 20px 12px;
-            border-radius: 10px;
-            flex: 1;
-            align-self: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-
-        }
-        .consequence3{
-            background-color: #214794;
-            color: white;
-            padding: 20px 12px;
-            border-radius: 10px;
-            flex: 1;
-            align-self: flex-end;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-
-        }
-        
-        .consequence-text {
-            font-size: 14px;
-            line-height: 1.3;
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-        .video{
-        margin-top: 90px;
-        padding-left: 480px;
-        margin-bottom: 100px;
-        height: 350px;
-        width: 390px;
-            
-        }
-
-#Consequences{
+#wup {
     text-align: center;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
-    font-size: 35px;
-    padding-right: 1100px;
-    color: white;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 0;
 }
 
+/* Líneas divisorias */
+.divider {
+    border: none;
+    border-top: 3px solid #EAF6F6;
+    width: 25%;
+    margin: 40px auto;
+}
 
-.tombstone{
+/* Estilos para el video */
+.video {
+    margin-top: 90px;
+    margin-bottom: 100px;
+    height: 350px;
+    width: 100%;
+}
+
+/* Estilos para la tumba */
+.tombstone {
     padding-left: 650px;
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 768px) {
+    .custom-navbar {
+        padding: 15px 20px;
+        height: auto;
+    }
+    
+    .custom-logo-container {
+        gap: 10px;
+    }
+    
+    .custom-title {
+        font-size: 18px;
+    }
+    
+    .custom-nav {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .custom-nav-link {
+        font-size: 16px;
+    }
+    
+    main {
+        padding-top: 120px;
+    }
+    
+    .custom-img {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+    }
+    
+    .section-title, #wup {
+        font-size: 30px;
+    }
+    
+    .divider {
+        width: 50%;
+    }
+    
+    .video {
+        height: 250px;
+    }
+    
+    .tombstone {
+        padding-left: 0;
+        text-align: center;
+    }
 }
