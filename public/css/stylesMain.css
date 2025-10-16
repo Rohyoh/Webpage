@@ -192,3 +192,23 @@ main {
         text-align: center;
     }
 }
+
+/* Estilos para la sección de quotes */
+.quote-container {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 5px solid #4f7cd7;
+    transition: transform 0.3s ease;
+}
+
+.quote-container:hover {
+    transform: translateY(-5px);
+}
+
+.quote-text {
+    color: #214794;
+    line-height: 1.6;
+}
+
+.blockquote-footer {
+    color: #4f7cd7;
+}
