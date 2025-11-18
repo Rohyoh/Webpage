@@ -1,41 +1,38 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/stylesMain.css">
     <title>CleanDSeas</title>
 </head>
 <body>
-    <!-- Header con Bootstrap para estructura -->
+    <div class="waves">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
     <header class="custom-navbar">
         <div class="container-fluid">
             <div class="d-flex justify-content-between align-items-center">
-                <!-- Logo y título -->
                 <div class="custom-logo-container">
                     <img src="images/logo.png" alt="Clean D Seas Logo" class="custom-logo">
                     <h1 class="custom-title">CLEAN D SEAS</h1>
                 </div>
                 
-                <!-- Navegación -->
                 <nav>
                     <ul class="custom-nav">
+                        <li><a href="#MainBody" class="custom-nav-link">The Problem</a></li>
+                        <li><a href="#History" class="custom-nav-link">History</a></li>
+                        <li><a href="#Consequences" class="custom-nav-link">Consequences</a></li>
+                        <li><a href="#GetInspired" class="custom-nav-link">Get Inspired</a></li>
+                        <li><a href="help.html" class="custom-nav-link">HELP</a></li>
                         <li>
-                            <a href="#MainBody" class="custom-nav-link">The Problem</a>
-                        </li>
-                        <li>
-                            <a href="#History" class="custom-nav-link">History</a>
-                        </li>
-                        <li>
-                            <a href="#Consequences" class="custom-nav-link">Consequences</a>
-                        </li>
-                        <li>
-                            <a href="#GetInspired" class="custom-nav-link">Get Inspired</a>
-                        </li>
-                        <li>
-                            <a href="help.html" class="custom-nav-link">HELP</a>
+                            <a href="#" class="custom-nav-link" data-bs-toggle="modal" data-bs-target="#userModal">
+                                <img src="images/user-icon.png" alt="User Profile" style="width: 30px; height: 30px; border-radius: 50%;">
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -44,122 +41,220 @@
     </header>
 
     <main class="container-fluid text-white">
-        <!-- Sección The Problem -->
         <section id="MainBody" class="py-5">
             <h2 id="wup" class="section-title">So, what's up?</h2>
             
             <div class="row justify-content-center mb-5">
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-4 text-center mb-4">
-                            <img src="https://images.theconversation.com/files/377023/original/file-20210104-23-1gss1v1.jpg?ixlib=rb-4.1.0&rect=4%2C2%2C994%2C661&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip"
-                                alt="Sea Pollution" class="custom-img">
+                <div class="col-md-10">
+                    <div class="info-card">
+                        <div class="row">
+                            <div class="col-md-4 text-center mb-4">
+                                <img src="https://images.theconversation.com/files/377023/original/file-20210104-23-1gss1v1.jpg?ixlib=rb-4.1.0&rect=4%2C2%2C994%2C661&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip"
+                                    alt="Sea Pollution" class="custom-img" data-bs-toggle="modal" data-bs-target="#problemModal">
+                                <div class="mt-3">
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#problemModal">Research Sources & Further Reading</button>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <h3 class="mb-3">The Ocean Pollution Crisis</h3>
+                                <p>Our oceans face an unprecedented threat from human activities. Every year, millions of tons of plastic waste enter marine ecosystems, while chemical pollutants and agricultural runoff create dead zones where marine life cannot survive.</p>
+                                
+                                <h5 class="mt-4">Primary Pollution Sources</h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul>
+                                            <li><strong>Plastic Pollution:</strong> 8 million tons enter oceans annually, harming over 700 species</li>
+                                            <li><strong>Chemical Contaminants:</strong> Industrial waste, pesticides, and heavy metals</li>
+                                            <li><strong>Nutrient Pollution:</strong> Agricultural runoff causing algal blooms and dead zones</li>
+                                            <li><strong>Oil Spills:</strong> Major accidents and routine shipping operations</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Scientific Publications</h5>
+                                        <p>For deeper research, consult these key scientific journals:</p>
+                                        <ul>
+                                            <li>Marine Pollution Bulletin</li>
+                                            <li>Environmental Science & Technology</li>
+                                            <li>Nature Communications - Environmental Studies</li>
+                                            <li>Science of The Total Environment</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mt-4">
+                                    <div class="col-md-6">
+                                        <h5>Immediate Threats</h5>
+                                        <ul>
+                                            <li>Plastic pollution affecting over 700 species</li>
+                                            <li>Chemical contamination from industrial waste</li>
+                                            <li>Coral reef bleaching and destruction</li>
+                                            <li>Overfishing disrupting food chains</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Long-term Impacts</h5>
+                                        <ul>
+                                            <li>Biodiversity loss and ecosystem collapse</li>
+                                            <li>Threats to global food security</li>
+                                            <li>Economic damage to coastal communities</li>
+                                            <li>Climate regulation disruption</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3">The time for action is now. Understanding the scale and complexity of marine pollution is the first step toward developing effective solutions.</p>
+                            </div>
                         </div>
-                        <div class="col-md-4 mb-4">
-                            <p>Sea pollution, or marine pollution, occurs when harmful substances like chemicals, trash, oil spills, and excess nutrients enter marine environments, causing detrimental effects on marine life, ecosystems, 
-                                and human health. The majority of these pollutants (approximately 80%) originate from land-based sources, such as agricultural runoff and industrial discharge, eventually reaching the ocean through rivers, 
-                                storm drains, and atmospheric deposition. Common pollutants include plastics, chemicals, fertilizers, and oil, which lead to algal blooms, bioaccumulation of toxins, and habitat degradation.  
-                            </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-10">
+                    <h3 class="text-center mb-4">Critical Ocean Statistics</h3>
+                    <div class="row text-center">
+                        <div class="col-md-3 mb-4">
+                            <div class="stat-card">
+                                <div class="stat-number">8M</div>
+                                <div class="stat-label">Tons of plastic enter oceans yearly</div>
+                            </div>
                         </div>
-                        <div class="col-md-4 mb-4">
-                            <p>If sea pollution isn't controlled soon, the consequences will be severe, cascading, and often irreversible. The ocean is not a separate entity; it is a fundamental life-support system for our planet.
-                                The ocean's health is directly tied to our own survival. The urgency to act—by reducing plastic waste, curbing chemical runoff, transitioning to clean energy, and creating protected marine areas—has 
-                                never been greater. The next few decades are critical.
-                            </p>
+                        <div class="col-md-3 mb-4">
+                            <div class="stat-card">
+                                <div class="stat-number">700</div>
+                                <div class="stat-label">Marine species affected by plastic</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="stat-card">
+                                <div class="stat-number">500</div>
+                                <div class="stat-label">Dead zones where marine life can't survive</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="stat-card">
+                                <div class="stat-number">80%</div>
+                                <div class="stat-label">Of pollution comes from land sources</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <hr class="divider">
-            <hr class="divider">
-            
-            <!-- Sección de imágenes -->
             <div class="row justify-content-center mb-5">
                 <div class="col-md-10">
                     <div class="row justify-content-center">
                         <div class="col-md-4 text-center mb-4">
                             <img class="custom-img img-rotate1" src="https://cleanwater.org/sites/default/files/images/actions/RI_plastic%20on%20beach_canva.jpg"
-                                alt="Plastic on beach">
+                                alt="Plastic on beach" data-bs-toggle="modal" data-bs-target="#plasticModal">
                         </div>
                         <div class="col-md-4 text-center mb-4">
                             <img class="custom-img img-rotate2" src="https://www.greenpeace.org/static/planet4-international-stateless/2020/09/5a4f7d68-gp1su9nb-1024x576.jpg"
-                                alt="Ocean pollution">
+                                alt="Ocean pollution" data-bs-toggle="modal" data-bs-target="#pollutionModal">
                         </div>
                         <div class="col-md-4 text-center mb-4">
                             <img class="custom-img img-rotate3" src="https://www.reuters.com/resizer/v2/https%3A%2F%2Farchive-images.prod.global.a201836.reutersmedia.net%2F2015%2F02%2F13%2FLYNXMPEB1C006.JPG?auth=0f29dc60dbdb8dee529157047c46460e768cd35341ba1d6e202c4d539422c3e4&width=1080&quality=80"
-                                alt="Oil spill">
+                                alt="Oil spill" data-bs-toggle="modal" data-bs-target="#oilModal">
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <hr class="divider">
-            <hr class="divider">
         </section>
         
-        <!-- Sección History -->
         <section id="History" class="py-5">
             <h2 class="section-title">Problem's History</h2>
             
             <div class="row justify-content-center mb-5">
                 <div class="col-md-10">
-                    <div class="row mb-4">
-                        <div class="col-md-4 mb-4">
-                            <p>
-                                The relationship with the ocean was very different. People saw it as this vast, unknowable expanse—a source of wonder, food, and transportation, 
-                                but also as a perfect dumping ground. The prevailing attitude was, "out of sight, out of mind." Cities growing along coastlines would pipe their raw sewage straight out to sea. 
-                                Factories, booming with industrial progress, saw rivers and estuaries as convenient sewers for chemical waste, heavy metals, and byproducts. The ocean seemed so immense that the idea that we could affect it was almost laughable. 
-                                It was the ultimate "dilution is the solution to pollution" era.
-                            </p>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <p>
-                                Then, post-World War II, things really began to accelerate. This was the dawn of the plastic age. Materials like plastic, which were miracles of durability and convenience on land, became a nightmare in the water. 
-                                But it wasn't just plastic. The chemical industry was creating a whole new suite of synthetic compounds, pesticides like DDT, and industrial chemicals like PCBs. These didn't just dirty the water; they entered the food web.
-                                We started seeing eerie signs—eggshells of seabirds becoming so thin they would crush under the weight of the parent, populations of animals like otters and eagles mysteriously declining. The poison was invisible, but it was there,
-                                biomagnifying as it moved up the chain from plankton to fish to predator.
-                            </p>
-                        </div>
-                        <div class="col-md-4 mb-4 text-center">
-                            <iframe width="350" height="200" src="https://www.youtube.com/embed/uRE_DndxwaA?si=NVRL-L6HIuixjy7Z" 
-                            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                            </iframe>
+                    <div class="info-card">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <h3 class="mb-3">Key Historical Moments</h3>
+                                
+                                <div class="timeline-highlights">
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">1962</div>
+                                        <div class="timeline-content">
+                                            <h6>Silent Spring Published</h6>
+                                            <p>Rachel Carson's groundbreaking book raises public awareness about pesticide impacts, sparking modern environmental movement.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">1967</div>
+                                        <div class="timeline-content">
+                                            <h6>Torrey Canyon Oil Spill</h6>
+                                            <p>First major tanker disaster spills 120,000 tons of oil off UK coast, highlighting vulnerability of marine ecosystems.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">1972</div>
+                                        <div class="timeline-content">
+                                            <h6>Clean Water Act Passed</h6>
+                                            <p>Landmark US legislation regulates pollutant discharges and ocean dumping, setting precedent for global environmental policy.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">1997</div>
+                                        <div class="timeline-content">
+                                            <h6>Great Pacific Garbage Patch Discovered</h6>
+                                            <p>Oceanographer Charles Moore discovers massive plastic accumulation zone in North Pacific, drawing global attention to plastic pollution.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-5">
+                                <div class="text-center">
+                                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/uRE_DndxwaA?si=NVRL-L6HIuixjy7Z" 
+                                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                    </iframe>
+                                    <div class="mt-3">
+                                        <small class="text-muted">Watch: The history of ocean pollution and conservation efforts</small>
+                                    </div>
+                                    <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#historyModal">Explore Full Historical Timeline</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="row">
-                        <div class="col-md-4 mb-4">
-                            <p>
-                                This silent crisis led to a real awakening in the 1960s and 70s. Books like Rachel Carson's "Silent Spring," though focused on land, opened people's eyes to the interconnectedness of our ecosystem. Major environmental disasters,
-                                like the massive oil spill from the SS Torrey Canyon in 1967 and later the Exxon Valdez in 1989, were horrific but undeniable. For the first time, everyone saw the images—beaches blackened, birds suffocating in sludge, the ocean itself on fire. 
-                                It was no longer an invisible problem. This public outrage sparked the first real wave of environmental laws, like the Clean Water Act in the US, which began to regulate what could be dumped.
-                            </p>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <p>
-                                And then, we come to today. That plastic we fell in love with in the 1950s has come back to haunt us in a way we never imagined. We're now finding microplastics everywhere—in the deepest trenches of the Mariana Trench, in the Arctic ice, and inside our own bodies. 
-                                The Great Pacific Garbage Patch became the symbol of this new era, a swirling testament to our disposable culture. The conversation has shifted from visible trash to these invisible, insidious particles, and to a new understanding that the ocean isn't just a place we visit; 
-                                its health is directly tied to our climate. The CO2 we pump into the air is being absorbed, making the water more acidic, threatening the very foundation of the marine food web: coral reefs and shellfish.
-                            </p>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <p>
-                                So the story, from 100 years ago to now, is really a story of human perception. We went from seeing the ocean as a limitless dumpster to understanding it as a fragile, connected, and critically important life support system. The problems have evolved from simple, 
-                                visible waste to complex, global chemical and carbon cycles that we are only beginning to understand. The challenge is no longer just about cleaning up a beach; it's about redesigning our entire relationship with the planet, from how we farm and manufacture to how we power our lives. 
-                                The ocean has been telling us this story for a century. We're just now learning how to listen.
-                            </p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="info-card">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Current Global Initiatives</h5>
+                                <ul>
+                                    <li>UN Sustainable Development Goal 14: Life Below Water</li>
+                                    <li>Paris Agreement climate commitments</li>
+                                    <li>Global plastic reduction treaties</li>
+                                    <li>Marine protected area expansion</li>
+                                    <li>Corporate sustainability pledges</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Technological Innovations</h5>
+                                <ul>
+                                    <li>Ocean cleanup systems and barriers</li>
+                                    <li>Biodegradable plastic alternatives</li>
+                                    <li>Satellite monitoring of pollution</li>
+                                    <li>AI-powered waste sorting</li>
+                                    <li>Circular economy models</li>
+                                </ul>
+                                
+                                <p>The challenge has evolved from visible cleanup to systemic change in how we produce and consume, requiring global cooperation and innovative solutions.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         
-        <hr class="divider">
-        <hr class="divider">
-
-        <!--Sección Get Inspired -->
         <section id="GetInspired" class="py-5">
             <h2 class="section-title">Get Inspired</h2>
             
@@ -178,10 +273,6 @@
             </div>
         </section>
         
-        <hr class="divider">
-        <hr class="divider">
-        
-        <!-- Sección Consequences -->
         <section id="Consequences" class="py-5">
             <h2 class="section-title">Consequences</h2>
             
@@ -189,24 +280,21 @@
                 <div class="col-md-10">
                     <div class="row">
                         <div class="col-md-4 mb-4">
-                            <div class="consequence-box h-100">
-                                <p class="consequence-text">"Devastation of Marine Ecosystems and Biodiversity: Pollution introduces harmful chemicals, plastics, and excess nutrients into the ocean. 
-                                        This directly kills marine life through ingestion or entanglement (especially with plastic), destroys critical habitats like coral reefs and seagrass beds, 
-                                        and creates vast "dead zones" where no life can exist due to a lack of oxygen. This loss of biodiversity destabilizes the entire marine food web"</p>
+                            <div class="consequence-box h-100" data-bs-toggle="modal" data-bs-target="#ecosystemModal">
+                                <h4>Ecosystem Destruction</h4>
+                                <p class="consequence-text">Pollution introduces harmful chemicals and plastics that kill marine life through ingestion and entanglement. It destroys critical habitats like coral reefs and creates oxygen-depleted dead zones where no life can survive.</p>
                             </div>
                         </div>
                         <div class="col-md-4 mb-4">
-                            <div class="consequence-box h-100 mt-4">
-                                <p class="consequence-text">"Direct Harm to Human Health and Economies: Pollutants like mercury, PCBs, and microplastics accumulate in the seafood we eat, posing significant health risks.
-                                        Contaminated waters also cause illnesses through direct contact. Economically, pollution devastates fisheries and aquaculture industries, cripples tourism 
-                                        in coastal areas with dirty beaches and dying reefs, and burdens communities with massive cleanup costs."</p>
+                            <div class="consequence-box h-100" data-bs-toggle="modal" data-bs-target="#healthModal">
+                                <h4>Human Health Impact</h4>
+                                <p class="consequence-text">Toxins like mercury and microplastics accumulate in seafood, posing serious health risks. Pollution also devastates fishing industries and tourism, burdening communities with massive cleanup costs and economic losses.</p>
                             </div>
                         </div>
                         <div class="col-md-4 mb-4">
-                            <div class="consequence-box h-100">
-                                <p class="consequence-text">"Disruption of Global Systems: The ocean is a major regulator of Earth's climate. Pollution, particularly through the process of ocean acidification 
-                                        (caused by the absorption of excess CO2), compromises the ocean's ability to function properly. This weakens one of our planet's most important 
-                                        defenses against climate change and disrupts the vital cycles that support life on Earth."</p>
+                            <div class="consequence-box h-100" data-bs-toggle="modal" data-bs-target="#climateModal">
+                                <h4>Climate Disruption</h4>
+                                <p class="consequence-text">Ocean acidification from absorbed CO2 compromises the ocean's ability to regulate climate. This weakens Earth's natural defenses against climate change and disrupts vital planetary systems that support all life.</p>
                             </div>
                         </div>
                     </div>
@@ -222,18 +310,175 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Tombstone -->
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-12 text-center">
-                <a href="/">
-                    <img src="images/tombstone.png" alt="tombstone" width="200" height="280">
-                </a>
-            </div>
-        </div>
     </main>
 
-    <!-- Bootstrap JS -->
+    <!-- User Modal -->
+    <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="userModalLabel">User Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-3">
+                        <img src="images/user-icon.png" alt="User" class="rounded-circle" width="80" height="80">
+                    </div>
+                    <p><strong>Username:</strong> user1234</p>
+                    <p><strong>Location:</strong> Mexico</p>
+                    <p><strong>Member since:</strong> January 2024</p>
+                    <p><strong>Contributions:</strong> 15 cleanups</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem Modal -->
+    <div class="modal fade" id="problemModal" tabindex="-1" aria-labelledby="problemModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="problemModalLabel">Research Sources & Further Reading</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info">
+                        <strong>Note:</strong> Without immediate action, these pollutants will cause irreversible damage to marine ecosystems and human livelihoods. Current research shows we have a narrow window to implement effective solutions.
+                    </div>
+                    
+                    <h6>Research & Data Sources</h6>
+                    <ul>
+                        <li><a href="https://www.un.org/sustainabledevelopment/oceans/" target="_blank">UN Sustainable Development Goals - Oceans</a></li>
+                        <li><a href="https://www.iucn.org/resources/issues-brief/marine-plastic-pollution" target="_blank">IUCN Marine Plastic Pollution Brief</a></li>
+                        <li><a href="https://oceanconservancy.org/trash-free-seas/" target="_blank">Ocean Conservancy Research</a></li>
+                        <li><a href="https://www.nationalgeographic.com/environment/article/plastic-pollution" target="_blank">National Geographic Plastic Coverage</a></li>
+                        <li><a href="https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-pollution" target="_blank">NOAA Ocean Pollution Education</a></li>
+                    </ul>
+                    
+                    <h6 class="mt-4">Additional Information</h6>
+                    <p>Marine pollution encompasses a wide range of contaminants entering ocean environments, with devastating consequences for ecosystems and human communities worldwide. The complexity of this issue requires multidisciplinary approaches combining science, policy, and community engagement.</p>
+                    
+                    <p>Recent studies show that microplastics have been found in the most remote marine environments, including deep-sea trenches and Arctic ice, demonstrating the pervasive nature of this pollution. Additionally, new research continues to reveal the long-term impacts of chemical pollutants on marine life and human health through the food chain.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Modal -->
+    <div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="historyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="historyModalLabel">Marine Pollution Historical Timeline</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">Pre-Industrial Era</div>
+                            <div class="timeline-content">
+                                <h6>Limited Environmental Impact</h6>
+                                <p>Oceans viewed as infinite dumping grounds with minimal regulation. Pollution primarily from limited shipping and coastal settlements.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">1950s</div>
+                            <div class="timeline-content">
+                                <h6>Plastic Revolution Begins</h6>
+                                <p>Mass production of plastics transforms consumer goods. Chemical industry expands dramatically with new synthetic compounds.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">1962</div>
+                            <div class="timeline-content">
+                                <h6>Silent Spring Published</h6>
+                                <p>Rachel Carson's groundbreaking book raises public awareness about pesticide impacts, sparking modern environmental movement.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">1967</div>
+                            <div class="timeline-content">
+                                <h6>Torrey Canyon Oil Spill</h6>
+                                <p>First major tanker disaster spills 120,000 tons of oil off UK coast, highlighting vulnerability of marine ecosystems.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">1972</div>
+                            <div class="timeline-content">
+                                <h6>Clean Water Act & Marine Protection</h6>
+                                <p>Landmark US legislation regulates pollutant discharges and ocean dumping, setting precedent for global environmental policy.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">1980s-1990s</div>
+                            <div class="timeline-content">
+                                <h6>Environmental Awareness Grows</h6>
+                                <p>Discovery of ozone hole (1985) and increasing evidence of climate change. Exxon Valdez disaster (1989) further highlights oil spill risks.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">1997</div>
+                            <div class="timeline-content">
+                                <h6>Great Pacific Garbage Patch Discovered</h6>
+                                <p>Oceanographer Charles Moore discovers massive plastic accumulation zone in North Pacific, drawing global attention to plastic pollution.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2000s-Present</div>
+                            <div class="timeline-content">
+                                <h6>Microplastic Era & Global Response</h6>
+                                <p>Microplastic contamination discovered globally. Ocean acidification recognized as major threat. International agreements and cleanup technologies emerge.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h6>Further Reading & Historical Resources</h6>
+                        <ul>
+                            <li><a href="https://www.youtube.com/watch?v=a35ffqcF_ZA" target="_blank">Ocean Pollution - United Nations Development Programme (UNDP)</a></li>
+                            <li><a href="https://www.epa.gov/history" target="_blank">EPA History - Environmental Protection Agency</a></li>
+                            <li><a href="https://www.unep.org/explore-topics/oceans-seas" target="_blank">UN Environment Programme - Oceans</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ecosystem Modal -->
+    <div class="modal fade" id="ecosystemModal" tabindex="-1" aria-labelledby="ecosystemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ecosystemModalLabel">Ecosystem Impact</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Marine pollution devastates ecosystems through multiple pathways:</p>
+                    <ul>
+                        <li>Coral reef bleaching and destruction</li>
+                        <li>Marine animal entanglement and ingestion of plastics</li>
+                        <li>Formation of oxygen-depleted dead zones</li>
+                        <li>Disruption of reproductive cycles</li>
+                        <li>Loss of biodiversity and habitat destruction</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

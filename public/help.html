@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/stylesHelp.css">
     <title>Help</title>
@@ -17,21 +16,23 @@
         <div class="bubble"></div>
     </div>
 
-    <!-- Header usando Bootstrap para estructura -->
     <header class="custom-navbar">
         <div class="container-fluid">
             <div class="d-flex justify-content-between align-items-center">
-                <!-- Logo y título -->
                 <div class="custom-logo-container">
                     <img src="images/logo.png" alt="Clean D Seas Logo" class="custom-logo">
                     <h1 class="custom-title">Help The Cause</h1>
                 </div>
                 
-                <!-- Navegación -->
                 <nav>
                     <ul class="custom-nav">
                         <li>
-                            <a href="index.html" class="custom-nav-link">RETURN TO MAIN PAGE</a>
+                            <a href="/" class="custom-nav-link">RETURN TO MAIN PAGE</a>
+                        </li>
+                        <li>
+                            <a href="#" class="custom-nav-link" data-bs-toggle="modal" data-bs-target="#userModal">
+                                <img src="images/user-icon.png" alt="User Profile" style="width: 30px; height: 30px; border-radius: 50%;">
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -40,40 +41,58 @@
     </header>
 
     <main class="container">
-        <!-- Sección How to Help -->
         <section class="mb-5">
-            <h2 class="mb-4">How to help?</h2>
+            <h2 class="mb-4 text-center">How You Can Help</h2>
             
-            <div class="row align-items-center mb-4">
-                <div class="col-md-8">
-                    <p class="mb-0">
-                        Dispose of Trash Correctly and Recycle Right: This seems simple, but a gust of wind can turn an overflowing bin into a source of pollution. 
-                        Always secure your trash and recycling. Crucially, take a moment to learn your local recycling rules. "Wish-cycling" (tossing non-recyclable items in the bin) 
-                        can contaminate an entire batch of recycling, sending it all to the landfill where it's more likely to leak into the environment.
-                    </p>
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6">
+                    <div class="help-card">
+                        <h4>Proper Waste Disposal</h4>
+                        <p>Secure your trash and recycling to prevent wind from carrying it into waterways. Learn local recycling rules to avoid "wish-cycling" that contaminates entire batches of recyclables.</p>
+                        <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#recyclingModal">Recycling Tips</button>
+                    </div>
                 </div>
-                <div class="col-md-4 text-center">
-                    <img class="img-fluid responsive-img1" src="https://hometriangle.com/blogs/content/images/2024/03/Effective-Garbage-disposal.jpg" 
+                <div class="col-md-6 text-center">
+                    <img class="img-fluid help-img" src="https://hometriangle.com/blogs/content/images/2024/03/Effective-Garbage-disposal.jpg" 
                          alt="dispose trash correctly">
                 </div>
             </div>
             
             <div class="row align-items-center mb-5">
-                <div class="col-md-4 text-center order-md-2">
-                    <img class="img-fluid responsive-img2" src="https://a.storyblok.com/f/146790/1600x842/7ac33a43f1/how-to-organize-a-beach-clean-up-0.png" 
+                <div class="col-md-6 text-center order-md-2">
+                    <img class="img-fluid help-img" src="https://a.storyblok.com/f/146790/1600x842/7ac33a43f1/how-to-organize-a-beach-clean-up-0.png" 
                          alt="cleaning group">
                 </div>
-                <div class="col-md-8 order-md-1">
-                    <p class="mb-0">
-                        Join a Cleanup: Participate in a local beach, river, or park cleanup. This is a direct, hands-on way to stop waste in its tracks. 
-                        It's also a powerful reminder of what we're up against and can be a great community-building activity. If you can't find a local event, 
-                        even spending 10 minutes picking up trash during your own walk can make a real difference.
-                    </p>
+                <div class="col-md-6 order-md-1">
+                    <div class="help-card">
+                        <h4>Join Cleanup Efforts</h4>
+                        <p>Participate in local beach, river, or park cleanups. These hands-on activities directly remove waste and raise community awareness. Even 10 minutes of cleanup during your daily walk makes a difference.</p>
+                        <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#cleanupModal">Find Cleanups</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-8">
+                    <div class="action-card text-center">
+                        <h3>Take Action Today</h3>
+                        <p>Small changes in daily habits collectively create significant impact. Reduce single-use plastics, choose sustainable seafood, and support ocean-friendly businesses.</p>
+                        <div class="action-stats">
+                            <div class="stat">
+                                <div class="stat-number">90%</div>
+                                <div class="stat-label">Of ocean plastic comes from just 10 rivers</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">1M</div>
+                                <div class="stat-label">Marine animals killed by plastic annually</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="text-center">
-                <iframe class="embed-responsive-item" width="400" height="300" src="https://www.youtube.com/embed/cV2gBU6hKfY?si=aImm1mttpPyIY4EN" 
+            <div class="text-center mt-5">
+                <iframe class="embed-responsive-item" width="100%" height="400" src="https://www.youtube.com/embed/cV2gBU6hKfY?si=aImm1mttpPyIY4EN" 
                         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowfullscreen></iframe>
             </div>
@@ -81,72 +100,192 @@
         
         <hr class="my-5">
         
-        <!-- Sección Where to Donate -->
         <section>
-            <h2 class="mb-3">Where to donate?</h2>
-            <h5 class="text-muted mb-4 text-center">(click on the org image you wish to donate to)</h5>
+            <h2 class="mb-3 text-center">Support These Organizations</h2>
+            <h5 class="text-muted mb-4 text-center">Click on organization logos to donate</h5>
             
             <div class="row mb-4 align-items-center">
-                <div class="col-md-2 text-center">
-                    <a href="https://donate.oceanconservancy.org/page/158113/donate/1">
-                        <img class="img-fluid rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_WDr6SzRJG05C98bxupFa6pPsCV97NaCL-A&s" 
-                             alt="logo1" width="100" height="100">
+                <div class="col-md-3 text-center">
+                    <a href="https://donate.oceanconservancy.org/page/158113/donate/1" data-bs-toggle="modal" data-bs-target="#org1Modal">
+                        <img class="img-fluid rounded-circle org-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_WDr6SzRJG05C98bxupFa6pPsCV97NaCL-A&s" 
+                             alt="Ocean Conservancy logo">
                     </a>
                 </div>
-                <div class="col-md-10">
-                    <p class="text1 mb-0">
-                        One of the leading advocacy groups in this space, Ocean Conservancy has been driving policy change and scientific solutions for decades. 
-                        They are famously the founder of the International Coastal Cleanup, where millions of volunteers around the world collect and data-log trash from beaches. 
-                        Your donation helps them not only organize these massive cleanups but also leverage the data to inform powerful policy campaigns aimed at stopping plastic pollution at its source.
-                    </p>
+                <div class="col-md-9">
+                    <div class="org-card">
+                        <h4>Ocean Conservancy</h4>
+                        <p>Leading advocacy group driving policy change and scientific solutions for decades. Founder of the International Coastal Cleanup, where millions of volunteers collect and catalog trash worldwide. Your donation supports cleanups and policy campaigns targeting plastic pollution at its source.</p>
+                    </div>
                 </div>
             </div>
             
             <div class="row mb-4 align-items-center">
-                <div class="col-md-2 text-center">
-                    <a href="https://theoceancleanup.com/donate">
-                        <img class="img-fluid rounded-circle" src="https://yt3.googleusercontent.com/gy5-3rrQztTgAt_w249L5-LFzJh-yukvbguarLuuEvUtil8tSzyPUmNILbAH27sq4KJw-l9z=s900-c-k-c0x00ffffff-no-rj"
-                             alt="logo2" width="100" height="100">
+                <div class="col-md-3 text-center">
+                    <a href="https://theoceancleanup.com/donate" data-bs-toggle="modal" data-bs-target="#org2Modal">
+                        <img class="img-fluid rounded-circle org-logo" src="https://yt3.googleusercontent.com/gy5-3rrQztTgAt_w249L5-LFzJh-yukvbguarLuuEvUtil8tSzyPUmNILbAH27sq4KJw-l9z=s900-c-k-c0x00ffffff-no-rj"
+                             alt="The Ocean Cleanup logo">
                     </a>
                 </div>
-                <div class="col-md-10">
-                    <p class="text2 mb-0">
-                        This organization is known for its innovative and large-scale technological approaches to the problem. They develop and deploy advanced systems to remove plastic that is already 
-                        polluting the oceans, most notably in rivers (to intercept trash before it reaches the ocean) and from the Great Pacific Garbage Patch. A donation to them supports direct, technological 
-                        intervention to clean up existing plastic pollution on a massive scale.
-                    </p>
+                <div class="col-md-9">
+                    <div class="org-card">
+                        <h4>The Ocean Cleanup</h4>
+                        <p>Pioneers large-scale technological solutions to remove existing ocean plastic. Develops advanced systems to intercept trash in rivers before it reaches oceans and clean the Great Pacific Garbage Patch. Your donation supports direct technological intervention against plastic pollution.</p>
+                    </div>
                 </div>
             </div>
             
             <div class="row align-items-center">
-                <div class="col-md-2 text-center">
-                    <a href="https://www.surfrider.org/?form=onmf&hsLang=en">
-                        <img class="img-fluid rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZmcsyZLG-ZZw_SW7vJHHkPs6miPDUWvpbuA&s" 
-                             alt="logo3" width="100" height="100">
+                <div class="col-md-3 text-center">
+                    <a href="https://www.surfrider.org/?form=onmf&hsLang=en" data-bs-toggle="modal" data-bs-target="#org3Modal">
+                        <img class="img-fluid rounded-circle org-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZmcsyZLG-ZZw_SW7vJHHkPs6miPDUWvpbuA&s" 
+                             alt="Surfrider Foundation logo">
                     </a>
                 </div>
-                <div class="col-md-10">
-                    <p class="text3 mb-0">
-                        This is a grassroots organization built on the power of a network of dedicated volunteers and local chapters, primarily made up of surfers and beach lovers who see the impact of pollution firsthand. 
-                        The Surfrider Foundation is incredibly effective at fighting for change on local, state, and national levels through campaigns focused on plastic reduction, clean water, and protecting coastal ecosystems. 
-                        Your donation empowers local communities to win concrete victories against pollution in their own backyards.
-                    </p>
+                <div class="col-md-9">
+                    <div class="org-card">
+                        <h4>Surfrider Foundation</h4>
+                        <p>Grassroots organization powered by volunteers and local chapters. Effective in fighting for change through campaigns focused on plastic reduction, clean water, and coastal protection. Your donation empowers communities to achieve concrete victories against local pollution.</p>
+                    </div>
                 </div>
             </div>
         </section>
         
-        <hr class="my-5">
-        
-        <!-- Imágenes al final -->
-        <div class="text-center">
-            <a href="#">
-                <img src="images/r3.png" alt="fish with sign" class="me-3" width="150" height="150">
-                <img src="images/r2.png" alt="money jar" width="180" height="100">
-            </a>
+        <div class="text-center mt-5">
+            <div class="impact-statement">
+                <h3>Every Action Counts</h3>
+                <p>Your contributions—whether time, money, or changed habits—directly impact ocean health and create a sustainable future for marine ecosystems.</p>
+            </div>
         </div>
+
+        <!-- New Join the Cause Section -->
+        <section class="join-section py-5 mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h2 class="mb-4">Join the Cause!</h2>
+                    <p class="lead mb-4">Be part of the growing community committed to protecting our oceans. Every commitment brings us closer to cleaner seas.</p>
+                    
+                    <div class="join-counter mb-4">
+                        <div class="counter-number" id="commitmentCounter">0</div>
+                        <div class="counter-label">People Have Joined</div>
+                    </div>
+                    
+                    <button class="btn btn-join btn-lg" id="joinButton">
+                        I'm In!
+                    </button>
+                    
+                    <p class="mt-3 text-muted">Click the button to add your commitment</p>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Bootstrap JS -->
+    <!-- User Modal -->
+    <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="userModalLabel">User Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-3">
+                        <img src="images/user-icon.png" alt="User" class="rounded-circle" width="80" height="80">
+                    </div>
+                    <p><strong>Username:</strong> user1234</p>
+                    <p><strong>Location:</strong> Mexico</p>
+                    <p><strong>Member since:</strong> January 2024</p>
+                    <p><strong>Contributions:</strong> 15 cleanups</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recycling Tips Modal -->
+    <div class="modal fade" id="recyclingModal" tabindex="-1" aria-labelledby="recyclingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="recyclingModalLabel">Recycling Best Practices</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>Rinse containers before recycling</li>
+                        <li>Check local guidelines for accepted materials</li>
+                        <li>Don't bag recyclables - place loose in bin</li>
+                        <li>Remove caps from plastic bottles</li>
+                        <li>Flatten cardboard boxes to save space</li>
+                        <li>When in doubt, throw it out to avoid contamination</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cleanup Modal -->
+    <div class="modal fade" id="cleanupModal" tabindex="-1" aria-labelledby="cleanupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cleanupModalLabel">Join a Cleanup</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Find local cleanup events through:</p>
+                    <ul>
+                        <li>Ocean Conservancy's Cleanup Events</li>
+                        <li>Surfrider Foundation Chapter Activities</li>
+                        <li>Local environmental organizations</li>
+                        <li>Community bulletin boards</li>
+                        <li>Social media environmental groups</li>
+                    </ul>
+                    <p>Can't find an event? Organize your own with friends and family!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Counter functionality for Join the Cause section
+        document.addEventListener('DOMContentLoaded', function() {
+            const joinButton = document.getElementById('joinButton');
+            const counterElement = document.getElementById('commitmentCounter');
+            
+            // Initialize counter from localStorage or set to 0
+            let commitmentCount = localStorage.getItem('commitmentCount') || 0;
+            counterElement.textContent = commitmentCount;
+            
+            joinButton.addEventListener('click', function() {
+                // Increment counter
+                commitmentCount++;
+                
+                // Update display
+                counterElement.textContent = commitmentCount;
+                
+                // Save to localStorage
+                localStorage.setItem('commitmentCount', commitmentCount);
+                
+                // Add visual feedback
+                joinButton.textContent = "Thank You!";
+                joinButton.classList.add('btn-joined');
+                
+                // Reset button after 2 seconds
+                setTimeout(function() {
+                    joinButton.textContent = "I'm In!";
+                    joinButton.classList.remove('btn-joined');
+                }, 2000);
+            });
+        });
+    </script>
 </body>
 </html>
