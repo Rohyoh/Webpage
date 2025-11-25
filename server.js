@@ -139,7 +139,7 @@ app.get('/api/user', (req, res) => {
 
 // Ruta para help.html
 app.get('/help', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'help.html'));
+    res.render('help');
 });
 
 // Ruta de health check para Render

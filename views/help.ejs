@@ -25,17 +25,23 @@
                 </div>
                 
                 <nav>
-                    <ul class="custom-nav">
-                        <li>
-                            <a href="/" class="custom-nav-link">RETURN TO MAIN PAGE</a>
-                        </li>
-                        <li>
-                            <a href="#" class="custom-nav-link" data-bs-toggle="modal" data-bs-target="#userModal">
-                                <img src="images/user-icon.png" alt="User Profile" style="width: 30px; height: 30px; border-radius: 50%;">
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+    <ul class="custom-nav">
+        <li>
+            <a href="/" class="custom-nav-link">RETURN TO MAIN PAGE</a>
+        </li>
+        <li>
+            <% if (user) { %>
+                <a href="#" class="custom-nav-link" data-bs-toggle="modal" data-bs-target="#userModal">
+                    <img src="<%= user.photos[0].value %>" alt="User Profile" style="width: 30px; height: 30px; border-radius: 50%;">
+                </a>
+            <% } else { %>
+                <a href="/auth/google" class="custom-nav-link">
+                    <img src="images/user-icon.png" alt="Login" style="width: 30px; height: 30px; border-radius: 50%;">
+                </a>
+            <% } %>
+        </li>
+    </ul>
+</nav>
             </div>
         </div>
     </header>
@@ -188,17 +194,27 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="text-center mb-3">
-                        <img src="images/user-icon.png" alt="User" class="rounded-circle" width="80" height="80">
-                    </div>
-                    <p><strong>Username:</strong> user1234</p>
-                    <p><strong>Location:</strong> Mexico</p>
-                    <p><strong>Member since:</strong> January 2024</p>
-                    <p><strong>Contributions:</strong> 15 cleanups</p>
-                </div>
+    <% if (user) { %>
+        <div class="text-center mb-3">
+            <img src="<%= user.photos[0].value %>" alt="User" class="rounded-circle" width="80" height="80">
+        </div>
+        <p><strong>Name:</strong> <%= user.displayName %></p>
+        <p><strong>Email:</strong> <%= user.emails[0].value %></p>
+        <p><strong>Member since:</strong> <%= new Date().toLocaleDateString() %></p>
+        <p><strong>Contributions:</strong> Active supporter</p>
+    <% } else { %>
+        <div class="text-center">
+            <p>Please log in to view your profile</p>
+            <a href="/auth/google" class="btn btn-primary">Login with Google</a>
+        </div>
+    <% } %>
+</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
+    <% if (user) { %>
+        <a href="/logout" class="btn btn-warning">Logout</a>
+    <% } %>
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+</div>
             </div>
         </div>
     </div>
