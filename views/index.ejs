@@ -23,25 +23,27 @@
                 </div>
                 
                 <nav>
-                    <ul class="custom-nav">
-                        <li><a href="#MainBody" class="custom-nav-link">The Problem</a></li>
-                        <li><a href="#History" class="custom-nav-link">History</a></li>
-                        <li><a href="#Consequences" class="custom-nav-link">Consequences</a></li>
-                        <li><a href="#GetInspired" class="custom-nav-link">Get Inspired</a></li>
-                        <li><a href="help.html" class="custom-nav-link">HELP</a></li>
-                        <li>
-                            <% if (user) { %>
-                                <a href="#" class="custom-nav-link" data-bs-toggle="modal" data-bs-target="#userModal">
-                                    <img src="<%= user.photos[0].value %>" alt="User Profile" style="width: 30px; height: 30px; border-radius: 50%;">
-                                </a>
-                            <% } else { %>
-                                <a href="/auth/google" class="custom-nav-link">
-                                    <img src="images/user-icon.png" alt="Login" style="width: 30px; height: 30px; border-radius: 50%;">
-                                </a>
-                            <% } %>
-                        </li>
-                    </ul>
-                </nav>
+    <ul class="custom-nav">
+        <li><a href="#MainBody" class="custom-nav-link">The Problem</a></li>
+        <li><a href="#History" class="custom-nav-link">History</a></li>
+        <li><a href="#Consequences" class="custom-nav-link">Consequences</a></li>
+        <li><a href="#GetInspired" class="custom-nav-link">Get Inspired</a></li>
+        <li><a href="/help" class="custom-nav-link">HELP</a></li>
+        <li>
+            <% if (user) { %>
+                <!-- loged -->
+                <a href="#" class="custom-nav-link" data-bs-toggle="modal" data-bs-target="#userModal">
+                    <img src="<%= user.photos[0].value %>" alt="User Profile" style="width: 30px; height: 30px; border-radius: 50%;">
+                </a>
+            <% } else { %>
+                <!-- unloged -->
+                <a href="/auth/google" class="custom-nav-link">
+                    <img src="images/user-icon.png" alt="Login" style="width: 30px; height: 30px; border-radius: 50%;">
+                </a>
+            <% } %>
+        </li>
+    </ul>
+</nav>
             </div>
         </div>
     </header>
