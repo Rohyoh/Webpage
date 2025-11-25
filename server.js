@@ -9,12 +9,20 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Session configuration
+const isProduction = process.env.NODE_ENV === 'production';
+const baseURL = isProduction 
+  ? 'https://cleandseas.onrender.com'  
+  : 'http://localhost:3001';
+
+// Session config
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'fallback_secret',
+  secret: process.env.SESSION_SECRET || 'fallback_secret_key_for_development',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 } // 24 hours
+  cookie: { 
+    secure: isProduction, // Solo HTTPS en producción
+    maxAge: 24 * 60 * 60 * 1000 // 24 horas
+  }
 }));
 
 // Passport configuration
@@ -25,10 +33,10 @@ app.use(passport.session());
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "/auth/google/callback"
+    callbackURL: `${baseURL}/auth/google/callback`
   },
   function(accessToken, refreshToken, profile, done) {
-    // Simple user serialization - in production, save to database
+    // Simple user serialization - (guardar en base de datos xddd)
     return done(null, profile);
   }
 ));
@@ -45,34 +53,43 @@ passport.deserializeUser((user, done) => {
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Authentication Routes
+// Middleware
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+  res.locals.isProduction = isProduction;
+  next();
+});
+
+// Authentication
 app.get('/auth/google',
-  passport.authenticate('google', { scope: ['profile', 'email'] })
+  passport.authenticate('google', { 
+    scope: ['profile', 'email'] 
+  })
 );
 
 app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/' }),
-  function(req, res) {
+  passport.authenticate('google', { 
+    failureRedirect: '/?auth_error=1' 
+  }),
+  (req, res) => {
+    // Successful auth
     res.redirect('/');
   }
 );
 
 app.get('/logout', (req, res) => {
-  req.logout(() => {
+  req.logout((err) => {
+    if (err) {
+      console.error('Logout error:', err);
+      return res.redirect('/');
+    }
     res.redirect('/');
   });
 });
 
-// Middleware +++
-app.use((req, res, next) => {
-  res.locals.user = req.user || null;
-  next();
-});
-
-// main w xdddd
+// main
 app.get('/', async (req, res) => {
   try {
     const response = await axios.get('https://zenquotes.io/api/random');
@@ -81,18 +98,25 @@ app.get('/', async (req, res) => {
       text: quoteData.q,
       author: quoteData.a
     };
-    res.render('index', { quote });
+    res.render('index', { 
+      quote,
+      authError: req.query.auth_error 
+    });
   } catch (error) {
     console.error('Error fetching quote:', error);
+    // Quote por defecto en caso de que no cargue la API
     const quote = {
       text: "The ocean is a mighty harmonist.",
       author: "William Wordsworth"
     };
-    res.render('index', { quote });
+    res.render('index', { 
+      quote,
+      authError: req.query.auth_error 
+    });
   }
 });
 
-// RESTful API
+// RESTful API xddddd
 app.get('/api/user', (req, res) => {
   if (req.isAuthenticated()) {
     res.json({
@@ -102,10 +126,14 @@ app.get('/api/user', (req, res) => {
         displayName: req.user.displayName,
         email: req.user.emails[0].value,
         photo: req.user.photos[0].value
-      }
+      },
+      environment: isProduction ? 'production' : 'development'
     });
   } else {
-    res.json({ authenticated: false });
+    res.json({ 
+      authenticated: false,
+      environment: isProduction ? 'production' : 'development'
+    });
   }
 });
 
@@ -114,12 +142,21 @@ app.get('/help', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'help.html'));
 });
 
-// Error handling middleware
+// Ruta de health check para Render
+app.get('/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'OK', 
+    environment: isProduction ? 'production' : 'development',
+    timestamp: new Date().toISOString()
+  });
+});
+
+// Error handling (when falla bro)
 app.use((err, req, res, next) => {
   console.error('Error:', err);
   res.status(500).render('error', { 
     message: 'Something went wrong!',
-    error: process.env.NODE_ENV === 'development' ? err : {}
+    error: isProduction ? {} : err // Solo mostrar detalles en desarrollo
   });
 });
 
@@ -132,5 +169,7 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Server running in ${isProduction ? 'production' : 'development'} mode`);
+  console.log(`App URL: ${baseURL}`);
+  console.log(`Port: ${PORT}`);
 });
