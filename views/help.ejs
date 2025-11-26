@@ -287,55 +287,70 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const joinButton = document.getElementById('joinButton');
-            const counterElement = document.getElementById('commitmentCounter');
-            
-            if (joinButton) {
-                joinButton.addEventListener('click', async function() {
-                    try {
-                        joinButton.disabled = true;
-                        joinButton.textContent = "Processing...";
-                        
-                        const response = await fetch('/api/click', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            }
-                        });
-                        
-                        const data = await response.json();
-                        
-                        if (response.ok) {
-                            // Update counter
-                            counterElement.textContent = data.count;
-                            
-                            // Visual feedback
-                            joinButton.textContent = "Thank You!";
-                            joinButton.classList.add('btn-joined');
-                            
-                            // Permanently disable
-                            setTimeout(() => {
-                                joinButton.disabled = true;
-                                joinButton.textContent = "Already Joined!";
-                            }, 2000);
-                            
-                        } else {
-                            alert('Error: ' + data.error);
-                            joinButton.disabled = false;
-                            joinButton.textContent = "I'm In!";
+    document.addEventListener('DOMContentLoaded', function() {
+        const joinButton = document.getElementById('joinButton');
+        const counterElement = document.getElementById('commitmentCounter');
+        
+        if (joinButton) {
+            joinButton.addEventListener('click', async function() {
+                try {
+                    joinButton.disabled = true;
+                    joinButton.textContent = "Processing...";
+                    
+                    const response = await fetch('/api/click', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
                         }
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        // Update counter
+                        counterElement.textContent = data.count;
                         
-                    } catch (error) {
-                        console.error('Error:', error);
-                        alert('Error processing your request');
+                        // Visual feedback
+                        joinButton.textContent = "Thank You!";
+                        joinButton.classList.add('btn-joined');
+                        
+                        // Permanently disable
+                        setTimeout(() => {
+                            joinButton.disabled = true;
+                            joinButton.textContent = "Already Joined!";
+                        }, 2000);
+                        
+                    } else {
+                        alert('Error: ' + data.error);
                         joinButton.disabled = false;
                         joinButton.textContent = "I'm In!";
                     }
-                });
-            }
-        });
-    </script>
+                    
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Error processing your request. Please try again.');
+                    joinButton.disabled = false;
+                    joinButton.textContent = "I'm In!";
+                }
+            });
+        }
+
+        // Check database status xdddd
+        fetch('/api/click-count')
+            .then(response => response.json())
+            .then(data => {
+                if (data.dbConnected === false) {
+                    console.log('Database is not connected, using local storage');
+                    // Fallback en caso de fail
+                    const localCount = localStorage.getItem('commitmentCount') || 0;
+                    counterElement.textContent = localCount;
+                }
+            })
+            .catch(error => {
+                console.error('Error checking database status:', error);
+            });
+    });
+</script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
           fetch('/api/auth/status')

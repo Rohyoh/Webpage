@@ -10,7 +10,7 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-//Config for Render proxy
+// Config for Render proxy
 app.set('trust proxy', 1);
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -18,17 +18,25 @@ const baseURL = isProduction
   ? 'https://cleandseas.onrender.com'
   : 'http://localhost:3001';
 
-//MongoDB
+// MongoDB Connection
 const connectDB = async () => {
+  const mongoURI = process.env.MONGODB_URI;
+  
+  if (!mongoURI) {
+    console.error('MONGODB_URI is not defined in environment variables');
+    console.log('Running without database connection');
+    return;
+  }
+
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
+    await mongoose.connect(mongoURI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
     console.log('MongoDB connected successfully');
   } catch (error) {
     console.error('Error connecting to MongoDB:', error);
-    process.exit(1);
+    console.log('Running without database connection');
   }
 };
 
@@ -59,9 +67,14 @@ const clickCounterSchema = new mongoose.Schema({
 const UserClick = mongoose.model('UserClick', userClickSchema);
 const ClickCounter = mongoose.model('ClickCounter', clickCounterSchema);
 
-//Initialize counter
+// Initialize counter
 const initializeCounter = async () => {
   try {
+    if (mongoose.connection.readyState !== 1) {
+      console.log('Database not connected, skipping counter initialization');
+      return;
+    }
+    
     const counter = await ClickCounter.findOne();
     if (!counter) {
       await ClickCounter.create({ count: 0 });
@@ -74,7 +87,12 @@ const initializeCounter = async () => {
 
 initializeCounter();
 
-//Session config
+// Helper function to check if database is connected
+const isDBConnected = () => {
+  return mongoose.connection.readyState === 1;
+};
+
+// Session config
 app.use(session({
   secret: process.env.SESSION_SECRET || 'fallback_secret_key_for_development',
   resave: false,
@@ -114,7 +132,7 @@ passport.use(new GoogleStrategy({
     callbackURL: `${baseURL}/auth/google/callback`
   },
   function(accessToken, refreshToken, profile, done) {
-    //user serialization
+    // Simple user serialization
     return done(null, profile);
   }
 ));
@@ -171,14 +189,17 @@ app.get('/logout', (req, res) => {
   });
 });
 
-
 app.get('/api/click-count', async (req, res) => {
   try {
+    if (!isDBConnected()) {
+      return res.json({ count: 0, dbConnected: false });
+    }
+    
     const counter = await ClickCounter.findOne();
-    res.json({ count: counter ? counter.count : 0 });
+    res.json({ count: counter ? counter.count : 0, dbConnected: true });
   } catch (error) {
     console.error('Error getting counter:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: 'Internal server error', dbConnected: false });
   }
 });
 
@@ -186,6 +207,10 @@ app.post('/api/click', async (req, res) => {
   try {
     if (!req.isAuthenticated()) {
       return res.status(401).json({ error: 'User not authenticated' });
+    }
+
+    if (!isDBConnected()) {
+      return res.status(500).json({ error: 'Database not available' });
     }
 
     const userId = req.user.id;
@@ -252,14 +277,18 @@ app.get('/', async (req, res) => {
 // Route for help.ejs
 app.get('/help', async (req, res) => {
   try {
-    const counter = await ClickCounter.findOne();
-    const totalClicks = counter ? counter.count : 0;
-    
-    // el usuario, ya dió click?
+    let totalClicks = 0;
     let userHasClicked = false;
-    if (req.isAuthenticated()) {
-      const userClick = await UserClick.findOne({ userId: req.user.id });
-      userHasClicked = !!userClick;
+
+    if (isDBConnected()) {
+      const counter = await ClickCounter.findOne();
+      totalClicks = counter ? counter.count : 0;
+      
+      // Check clicks by user
+      if (req.isAuthenticated()) {
+        const userClick = await UserClick.findOne({ userId: req.user.id });
+        userHasClicked = !!userClick;
+      }
     }
 
     console.log('Help route accessed - User:', req.user ? req.user.displayName : 'No user');
@@ -297,17 +326,18 @@ app.get('/api/user', (req, res) => {
   }
 });
 
-// Health check
+// Health check route for Render
 app.get('/health', (req, res) => {
   res.status(200).json({ 
     status: 'OK', 
     environment: isProduction ? 'production' : 'development',
+    database: isDBConnected() ? 'connected' : 'disconnected',
     timestamp: new Date().toISOString(),
     user: req.user ? 'authenticated' : 'not authenticated'
   });
 });
 
-// Error handling (por si explota xddd)
+// Error handling (en caso de que explote xdd)
 app.use((err, req, res, next) => {
   console.error('Error:', err);
   res.status(500).render('error', { 
@@ -329,4 +359,6 @@ app.listen(PORT, () => {
   console.log(`App URL: ${baseURL}`);
   console.log(`Port: ${PORT}`);
   console.log(`Google OAuth configured: ${process.env.GOOGLE_CLIENT_ID ? 'Yes' : 'No'}`);
+  console.log(`MongoDB URI configured: ${process.env.MONGODB_URI ? 'Yes' : 'No'}`);
+  console.log(`Database connected: ${isDBConnected() ? 'Yes' : 'No'}`);
 });
