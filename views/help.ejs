@@ -301,5 +301,19 @@
             });
         });
     </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('/api/auth/status')
+    .then(response => response.json())
+    .then(data => {
+      if (data.authenticated) {
+        console.log('User authenticated:', data.user.displayName);
+      } else {
+        console.log('User not authenticated');
+      }
+    })
+    .catch(error => console.error('Auth check error:', error));
+});
+</script>
 </body>
 </html>

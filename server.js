@@ -27,6 +27,22 @@ app.use(session({
   }
 }));
 
+app.get('/api/auth/status', (req, res) => {
+  if (req.isAuthenticated()) {
+    res.json({
+      authenticated: true,
+      user: {
+        id: req.user.id,
+        displayName: req.user.displayName,
+        email: req.user.emails[0].value,
+        photo: req.user.photos[0].value
+      }
+    });
+  } else {
+    res.json({ authenticated: false });
+  }
+});
+
 // Passport confi
 app.use(passport.initialize());
 app.use(passport.session());
