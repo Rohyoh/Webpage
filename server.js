@@ -9,6 +9,9 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Configuración para confiar en el proxy de Render
+app.set('trust proxy', 1);
+
 const isProduction = process.env.NODE_ENV === 'production';
 const baseURL = isProduction 
   ? 'https://cleandseas.onrender.com'
