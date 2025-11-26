@@ -89,7 +89,7 @@ initializeCounter();
 
 // Helper function to check if database is connected
 const isDBConnected = () => {
-  return mongoose.connection.readyState === 1;
+  return mongoose.connection.readyState == 1;
 };
 
 // Session config
