@@ -288,6 +288,13 @@ hr {
     box-shadow: 0 12px 25px rgba(76, 175, 80, 0.5) !important;
 }
 
+.embed-responsive-item {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+
 @media (max-width: 768px) {
     .custom-logo-container {
         gap: 15px;
