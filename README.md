@@ -1,5 +1,5 @@
 This is the "Save D Seas" website repository :)
-***Devlogs are inside the Devlogs folder*** <======= IMPORTANT
+***Devlogs are inside the Devlogs folder, and the design doc is inside the design folder*** <======= IMPORTANT
 
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 
