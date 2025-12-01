@@ -22,8 +22,6 @@ This will download all necessary libraries (express, mongoose, ejs, etc.).
 
 STEP 2: ENVIRONMENT VARIABLES CONFIGURATION (.env)
 ----------------------------------------------------------------
-The server.js file looks for sensitive variables that are not in the code.
-Create a file named ".env" (without quotes) in the root of the project.
 Copy and paste the following content into .env and fill in your details:
 
     # Server Port (defaults to 3001 :D)
